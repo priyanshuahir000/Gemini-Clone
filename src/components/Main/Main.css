@@ -9,14 +9,21 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 22px;
-    padding: 20px;
-    color: #585858;
+    font-size: 1.25rem;
+    margin: 12px 16px;
+    padding: 6px 0px;
+    color: #5f6368;
 }
 
 .main .nav img {
     width: 40px;
     border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out;
+}
+
+.main .nav img:hover {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.065);
 }
 
 .main .main-container {
@@ -26,35 +33,51 @@
 
 .main .greet {
     margin: 50px 0px;
-    font-size: 56px;
+    font-size: 3.5rem;
     color: #c4c7c5;
     font-weight: 500;
     padding: 20px;
 }
 
 .main .greet span {
-    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    background: -webkit-linear-gradient(16deg, #4285f4 0%, #9b72cb 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #9b72cb 50%, #d96570 56%, #ffffff 75%, #ffffff 100%);
+    background: linear-gradient(74deg, #4285f4 0%, #9b72cb 9%, #d96570 20%, #d96570 24%, #9b72cb 35%, #4285f4 44%, #9b72cb 50%, #d96570 56%, #ffffff 75%, #ffffff 100%);
+    background-size: 400% 100%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradient-animation 3s;
 }
 
-.main .cards{
+@keyframes gradient-animation {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 15px;
     padding: 20px;
 }
 
-.main .cards .card{
+.main .cards .card {
     height: 200px;
-    padding: 15px;
     background-color: #f0f4f9;
     border-radius: 10px;
     position: relative;
     cursor: pointer;
 }
 
-.main .cards .card img{
+.main .cards .card img {
     width: 35px;
     padding: 5px;
     position: absolute;
@@ -64,12 +87,17 @@
     right: 10px;
 }
 
-.main .cards .card p{
-    color: #585858;
-    font-size: 17px;
+.main .cards .card p {
+    color: #1f1f1f;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: 1.375rem;
+    margin: 16px;
+    margin-bottom: 0;
+    width: -webkit-fill-available;
 }
 
-.main .cards .card:hover{
+.main .cards .card:hover {
     background-color: #dfe4ea;
 }
 
@@ -82,40 +110,71 @@
     margin: auto;
 }
 
-.main .search-box{
+.main .search-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     background-color: #f0f4f9;
-    padding: 10px 20px;
+    padding: 4px 20px;
     border-radius: 50px;
 }
 
-.main .search-box img{
+.main .search-box span {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main .search-box img {
     width: 24px;
     cursor: pointer;
 }
 
-.main .search-box input{
+.main .search-box span:hover {
+    background-color: #e2e6eb;
+}
+
+.main .search-box input {
     flex: 1;
     background: transparent;
     border: none;
     outline: none;
-    padding: 8px;
+    padding: 16px;
+    line-height: 24px;
     font-size: 18px;
 }
-.main .search-box div{
+
+.main .search-box div {
     display: flex;
     align-items: center;
-    gap: 15px;
+    transition: transform 0.3s ease;
 }
 
-.main .bottom-info{
+.send-icon {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.send-icon.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.main .bottom-info {
     font-size: 13px;
     margin: 15px auto;
     text-align: center;
     font-weight: 300;
+}
+
+.main .bottom-info a {
+    color: #1f1f1f;
+
 }
 
 .main .result {
@@ -123,38 +182,54 @@
     max-height: 70vh;
     overflow-y: scroll;
 }
-.main .result::-webkit-scrollbar{
+
+.main .result::-webkit-scrollbar {
     display: none;
 }
 
-.main .result-title{
-    margin: 40px 0px ;
+.main .result-title {
+    margin: 40px 0px;
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.main .result img{
-    width: 40px;
+.main .result img {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
 }
 
-.main .result-data{
+.main .result-data {
     display: flex;
     align-items: start;
     gap: 20px;
 }
 
-.main .loader{
+.main .result-data .spin {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.main .loader {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.main .loader hr{
+.main .loader hr {
     background-color: #f6f7f8;
-    background: linear-gradient(to right, #9ed7ff, #ffffff, #9ed7ff);
+    background: linear-gradient(33deg, rgba(240, 244, 249, 0.2) 0%, rgba(233, 238, 246, 1) 25%, rgba(72, 127, 237, 1) 50%, rgba(233, 238, 246, 1) 75%, rgba(240, 244, 249, 0.2) 100%);
     background-size: 800px 50px;
     height: 15px;
     border-radius: 4px;
@@ -162,17 +237,90 @@
     animation: loader 3s infinite linear;
 }
 
-@keyframes loader{
-    0%{
+.main .loader hr:nth-child(2) {
+    animation-delay: -0.5s;
+}
+
+.main .loader hr:nth-child(3) {
+    animation-delay: -1s;
+    width: 66%;
+}
+
+@keyframes loader {
+    0% {
         background-position: -800px 0px;
     }
-    100%{
+
+    100% {
         background-position: 800px 0px;
     }
 }
 
-.main .result-data p{
+.main .result-data p {
     font-size: 17px;
     font-weight: 300;
     line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+    .main-bottom input {
+        flex: none;
+        width: 150px;
+    }
+
+    .main-bottom img {
+        width: 20px;
+    }
+
+    .main .cards {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .main .cards .card {
+        height: 150px;
+    }
+
+    .main .cards .card img {
+        width: 30px;
+    }
+
+    .main .cards .card p {
+        font-size: 14px;
+    }
+
+    .main .greet {
+        font-size: 40px;
+    }
+
+    .main .nav {
+        font-size: 18px;
+    }
+
+    .main .result-data p {
+        font-size: 15px;
+    }
+
+    .main .result img {
+        width: 30px;
+    }
+
+    .main .result-title {
+        margin: 20px 0px;
+    }
+
+    .main .result-data {
+        gap: 10px;
+    }
+
+    .main .bottom-info {
+        font-size: 12px;
+    }
+
+    .main .search-box {
+        padding: 5px 10px;
+    }
+
+    .search-box div {
+        gap: 5px;
+    }
 }
