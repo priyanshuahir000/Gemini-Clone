@@ -2,6 +2,8 @@ import React from "react";
 import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Main = () => {
   const {
@@ -18,7 +20,9 @@ const Main = () => {
     <div className="main">
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <a target="_blank" href="https://accounts.google.com/">
+          <img src={assets.user_icon} alt="" />
+        </a>
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -55,7 +59,10 @@ const Main = () => {
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
-              <img src={loading ? assets.gemini_gif : assets.gemini_icon} alt="" />
+              <img
+                src={loading ? assets.gemini_gif : assets.gemini_icon}
+                alt=""
+              />
               {loading ? (
                 <div className="loader">
                   <hr />
@@ -63,7 +70,10 @@ const Main = () => {
                   <hr />
                 </div>
               ) : (
-                <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
+                <p
+                  style={{ marginTop: "0px" }}
+                  dangerouslySetInnerHTML={{ __html: resultData }}
+                ></p>
               )}
             </div>
           </div>
@@ -86,7 +96,17 @@ const Main = () => {
             />
             <div>
               <span>
-                <img src={assets.gallery_icon} alt="" />
+                <img
+                  src={assets.gallery_icon}
+                  alt=""
+                  data-tooltip-id="upload-image"
+                  data-tooltip-content="Upload image"
+                />
+                <Tooltip
+                  id="upload-image"
+                  style={{ padding: "5px", fontSize: "12px" }}
+                  classNameArrow="arrow"
+                />
               </span>
               <span>
                 {" "}

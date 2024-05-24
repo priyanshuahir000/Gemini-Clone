@@ -1,5 +1,6 @@
 import React from "react";
 import run from "../config/gemini.js";
+import { marked } from "marked";
 
 export const Context = React.createContext();
 
@@ -16,6 +17,10 @@ const ContextProvider = (props) => {
       setResultData((prev) => prev + nextWord);
     }, 75 * index);
   };
+
+  function Markdown(markdownData) {
+    return marked.parse(markdownData);
+  }
 
   const newChat = () => {
     setLoading(false);
@@ -35,17 +40,7 @@ const ContextProvider = (props) => {
       setRecentPrompt(input);
       response = await run(input);
     }
-    let responseArray = response.split("**");
-    let newResponse = "";
-    for (let i = 0; i < responseArray.length; i++) {
-      if (i === 0 || i % 2 == 0) {
-        newResponse += responseArray[i];
-      } else {
-        newResponse += "<b>" + responseArray[i] + "</b>";
-      }
-    }
-    let newResponse2 = newResponse.split("*").join("<br>");
-    let newResponseArray = newResponse2.split(" ");
+    let newResponseArray = Markdown(response).split(" ");
     for (let i = 0; i < newResponseArray.length; i++) {
       const nextWord = newResponseArray[i];
       delayPara(i, nextWord + " ");
