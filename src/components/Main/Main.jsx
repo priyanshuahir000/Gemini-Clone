@@ -104,13 +104,21 @@ const Main = () => {
                 />
                 <Tooltip
                   id="upload-image"
-                  style={{ padding: "5px", fontSize: "12px" }}
-                  classNameArrow="arrow"
+                  style={{ padding: "5px", fontSize: "12px", color: "#f0f4f9" }}
                 />
               </span>
               <span>
                 {" "}
-                <img src={assets.mic_icon} alt="" />
+                <img
+                  src={assets.mic_icon}
+                  alt=""
+                  data-tooltip-id="use-microphone"
+                  data-tooltip-content="Use microphone"
+                />
+                <Tooltip
+                  id="use-microphone"
+                  style={{ padding: "5px", fontSize: "12px", color: "#f0f4f9" }}
+                />
               </span>
               {input.length > 0 && (
                 <span className={`send-icon ${input.length > 0 ? "show" : ""}`}>
@@ -120,6 +128,16 @@ const Main = () => {
                     }}
                     src={assets.send_icon}
                     alt=""
+                    data-tooltip-id="submit"
+                    data-tooltip-content="Submit"
+                  />
+                  <Tooltip
+                    id="submit"
+                    style={{
+                      padding: "5px",
+                      fontSize: "12px",
+                      color: "#f0f4f9",
+                    }}
                   />
                 </span>
               )}

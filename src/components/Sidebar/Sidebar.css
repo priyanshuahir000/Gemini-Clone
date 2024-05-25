@@ -28,11 +28,11 @@
 
 .sidebar .new-chat {
     margin-top: 50px;
-    height: 48px;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     gap: 16px;
-    padding: 0px 16px;
+    padding: 0px 12px;
     background-color: #dde3ea;
     border-radius: 50px;
     font-size: 0.875rem;

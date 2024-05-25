@@ -2,8 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
-
-
+import { Tooltip } from "react-tooltip";
 const Sidebar = () => {
   const [extended, setExtended] = React.useState(true);
   const { onSent, prevPrompts, setRecentPrompt, newChat } =
@@ -28,9 +27,26 @@ const Sidebar = () => {
           className="menu"
           src={assets.menu_icon}
           alt=""
+          data-tooltip-id="menu"
+          data-tooltip-content={extended ? "Expand" : "Collapse"}
         />
-        <div onClick={() => newChat()} className="new-chat">
+        <Tooltip
+          id="menu"
+          place={"bottom"}
+          style={{ padding: "5px", fontSize: "12px", color: "#f0f4f9" }}
+        />
+        <div
+          onClick={() => newChat()}
+          className="new-chat"
+          data-tooltip-id="new-chat"
+          data-tooltip-content="New Chat"
+        >
           <img src={assets.plus_icon} alt="" />
+          <Tooltip
+            id="new-chat"
+            place={"bottom"}
+            style={{ padding: "5px", fontSize: "12px", color: "#f0f4f9" }}
+          />
           {!extended && <p>New Chat</p>}
         </div>
         {!extended && (
