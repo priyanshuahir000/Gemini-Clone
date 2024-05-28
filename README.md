@@ -3,9 +3,8 @@
 Welcome to the Gemini AI Clone repository! This project allows you to create your own Gemini-inspired large language model (LLM) interface using React. Explore the capabilities of LLMs and build a user-friendly platform for interaction.
 
 ## Demo
-
+[![See Demo](https://img.shields.io/badge/See-Demo-blue)](https://geminibypb.netlify.app/) 
 ![Screenshot 1](https://github.com/priyanshuahir000/Gemini-Clone/blob/main/src/assets/screenshot.gif)
-
 
 ## Key Features
 
