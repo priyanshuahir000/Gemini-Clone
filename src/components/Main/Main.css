@@ -287,6 +287,13 @@
 }
 
 @media(max-width: 600px) {
+    .main {
+        overflow: hidden;
+        height: 100lvh;
+        width: 100vw;
+        padding-bottom: 0svh;
+    }
+
     .main-bottom input {
         flex: none;
         width: 150px;
@@ -309,23 +316,29 @@
     }
 
     .main .cards .card p {
-        font-size: 14px;
+        font-size: 1rem;
+        line-height: 1.375rem;
     }
 
     .main .greet {
-        font-size: 40px;
+        font-size: 2.75rem;
+        margin: auto;
     }
 
     .main .nav {
         font-size: 18px;
     }
 
+    .main .result {
+        padding: 0 20px;
+    }
+
     .main .result-data p {
-        font-size: 15px;
+        font-size: 1rem;
     }
 
     .main .result img {
-        width: 30px;
+        width: 32px;
     }
 
     .main .result-title {
@@ -346,5 +359,9 @@
 
     .search-box div {
         gap: 5px;
+    }
+
+    .main .loader hr {
+        height: 15px;
     }
 }

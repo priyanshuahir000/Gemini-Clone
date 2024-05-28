@@ -5,7 +5,6 @@ import {
 } from "@google/generative-ai";
 
 const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-console.log(apiKey);
 const genAI = new GoogleGenerativeAI(apiKey);
 
 const model = genAI.getGenerativeModel({
@@ -39,7 +38,6 @@ async function run(prompt) {
   });
 
   const result = await chatSession.sendMessage(prompt);
-  console.log(result.response.text());
   return result.response.text();
 }
 
