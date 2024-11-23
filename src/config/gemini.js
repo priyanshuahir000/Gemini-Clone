@@ -31,14 +31,19 @@ const safetySettings = [
 ];
 
 async function run(prompt) {
+try {
   const chatSession = model.startChat({
     generationConfig,
     safetySettings,
     history: [],
   });
-
+  
   const result = await chatSession.sendMessage(prompt);
   return result.response.text();
+} 
+catch(error) {
+  return "API Key is not set";
+ }
 }
 
 export default run;
