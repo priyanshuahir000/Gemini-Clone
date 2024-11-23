@@ -49,5 +49,6 @@ catch(error) {
        "Ensure the project is built and deployed correctly with your configuration. \n\n" +
        "Thank you for your interest and support! 😊";
 }
+}
 
 export default run;
