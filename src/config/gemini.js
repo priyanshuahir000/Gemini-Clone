@@ -42,8 +42,12 @@ try {
   return result.response.text();
 } 
 catch(error) {
-  return "API Key is not set";
- }
+  return "⚠️ Notice: This application requires a valid API key to function. To use it: \n\n" +
+       "1. Fork the project from GitHub.\n" +
+       "2. Obtain your own Google API key.\n" +
+       "3. Add the key to a `.env` file in the root directory with the name `VITE_GOOGLE_API_KEY`.\n\n" +
+       "Ensure the project is built and deployed correctly with your configuration. \n\n" +
+       "Thank you for your interest and support! 😊";
 }
 
 export default run;
